@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: radius-plugin-config
+  namespace: argocd
+data:
+  plugin.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: ConfigManagementPlugin
+    metadata:
+      name: radius-plugin
+    spec:
+      version: v1.0
+      init:
+        command: [sh, -c, 'logger -s "$(ls -al)"']
+      generate:
+        command: [sh, -c, 'echo "{\"kind\": \"ApplicationDeployment\", \"apiVersion\": \"radapp.io/v1alpha3\", \"metadata\": { \"name\": \"argodemo\", \"namespace\": \"default\"}, \"spec\": { \"template\": \"$(base64 app.bicep -w 0)\"}}"' ]
+      discover:
+        fileName: "*.bicep"
