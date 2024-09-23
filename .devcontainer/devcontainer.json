@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Flux Controller",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+	"features": {
+        //Git and GitHub Setup
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        //Programming languages        
+        "ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/guiyomh/features/gotestsum:0.1.1": {},
+        //Container and K8s
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+            "minikube": "none"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true
+        },
+        //Tools
+        "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
+        "ghcr.io/mpriscella/features/kind:1": {},
+        "ghcr.io/dhoeric/features/stern:1": {},
+		"./flux": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.vscode-yaml",
+                "golang.go",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-azuretools.rad-vscode-bicep",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "ms-azuretools.vscode-dapr",
+                "ms-vscode.makefile-tools"
+            ]
+        }
+    }
+}
