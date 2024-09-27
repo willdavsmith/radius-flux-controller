@@ -1,0 +1,33 @@
+{
+	"name": "Flux Controller",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+	"features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/go:1": {},
+        "ghcr.io/guiyomh/features/gotestsum:0.1.1": {},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+            "minikube": "none"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true
+        },
+        "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
+        "ghcr.io/mpriscella/features/kind:1": {},
+        "ghcr.io/dhoeric/features/stern:1": {},
+		"./flux": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.vscode-yaml",
+                "golang.go",
+                "ms-azuretools.rad-vscode-bicep",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "ms-azuretools.vscode-dapr",
+                "ms-vscode.makefile-tools"
+            ]
+        }
+    }
+}
